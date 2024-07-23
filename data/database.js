@@ -5,6 +5,15 @@ const dbUser = process.env.MONGODB_USERNAME;
 const dbPassword = process.env.MONGODB_PASSWORD;
 const dbName = process.env.MONGODB_DB_NAME;
 
+if (!clusterAddress || !dbUser || !dbPassword || !dbName) {
+  console.error('Missing required environment variables:');
+  console.error(`MONGODB_CLUSTER_ADDRESS: ${clusterAddress}`);
+  console.error(`MONGODB_USERNAME: ${dbUser}`);
+  console.error(`MONGODB_PASSWORD: ${dbPassword}`);
+  console.error(`MONGODB_DB_NAME: ${dbName}`);
+  process.exit(1);
+}
+
 const uri = `mongodb+srv://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri);
 

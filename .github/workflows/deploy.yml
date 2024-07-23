@@ -47,4 +47,4 @@ jobs:
       - name: Output environment variables for debugging
         run: |        
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-          echo "MONGO_DB_NAME: ${{ env.MONGO_DB_NAME }}"
+          echo "MONGO_DB_NAME: ${{ env.MONGODB_DB_NAME }}"

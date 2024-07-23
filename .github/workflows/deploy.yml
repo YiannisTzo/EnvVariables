@@ -8,6 +8,7 @@ env:
   MONGO_DB_NAME: gha-demo
 jobs:
   test:
+    environment: testing
     env: 
       MONGODB_CLUSTER_ADDRESS: cluster0.wvxodlu.mongodb.net
       MONGODB_USERNAME: ioannistzomiadis
@@ -37,5 +38,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_PASSWORD }}"
           echo "MONGODB_DB_NAME: $env:MONGODB_DB_NAME"
